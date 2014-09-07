@@ -1,0 +1,28 @@
+<template name="home">
+
+    <div class="container-fluid schema">
+        <div class="row-fluid">
+            <div class="span2 main-menu">
+                <div class="text-center add-new-class">
+                    Добавить конфигурацию
+                </div>
+                {{#each posClasses}}
+                 {{> posclass}}
+                {{/each}}
+                <div class="text-center unassigned-class">
+                    Неназначенные
+                </div>
+            </div>
+            <div class="span10 click-to-add-new">
+                {{#if need2SelectClass}}
+                {{> classSelector}}
+                {{else}}
+                    {{#each positions}}
+                    {{>position}}
+                    {{/each}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+
+</template>

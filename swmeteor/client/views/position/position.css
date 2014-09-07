@@ -1,0 +1,27 @@
+
+.schema-item{
+    width: 300px;
+    background-color: #0000ae;
+    padding: 0 0 0 0;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.schema-item:hover {
+    text-decoration: none;
+    background: rgba(41, 129, 40, 0.90);
+}
+
+.schema-header {
+    padding: 0 5px 0 5px;
+    background-color: #0000ae;
+}
+
+.schema-header:hover {
+    text-decoration: none;
+    background: rgba(41, 129, 40, 0.90);
+}
+
+.schema-body {
+    padding: 0 5px 0 10px;
+    background-color: #000000;
+}

@@ -1,0 +1,33 @@
+<template name="ListOfMindMaps" xmlns:svg="http://www.w3.org/1999/html">
+
+
+    <ul class="mind-maps">
+        {{#each Mindmaps}}
+            {{> MindMapItem}}
+        {{/each}}
+    </ul>
+
+    <h2>Create a Mind Map</h2>
+    <form class="create-form">
+        <input type="text" name="name">
+        <input type="submit" name="submit">
+    </form>
+    <hr/>
+    {{> MindMapEditor}}
+</template>
+
+<template name="MindMapItem">
+    <li>
+        <span><a href="#" class="open-editor">{{name}}</a></span>
+        <button class="delete-button">Delete</button>
+    </li>
+</template>
+
+<template name="MindMapEditor">
+
+    {{#if HasMindmap}}
+     {{> svgTut10}}
+    {{else}}
+      <h1>Click on MindMap to view/edit it.</h1>
+    {{/if}}
+</template>

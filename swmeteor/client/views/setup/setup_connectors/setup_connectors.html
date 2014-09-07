@@ -1,0 +1,11 @@
+<template name="setupConnectors">
+    <h1 class="text-center">Разъемы</h1>
+    <button class="btn btn-large btn-info add-new-connector">Добавить новый разъем</button>
+    <hr/>
+
+    {{#each connectors}}
+      {{> displayConnector}}
+    {{/each}}
+    <hr/>
+
+</template>

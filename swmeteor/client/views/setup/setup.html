@@ -1,0 +1,41 @@
+<template name="setup">
+    <div class="container-fluid schema">
+        <div class="row-fluid">
+            <div class="span2 main-menu">
+                {{#each configItems}}
+                    {{> configSelector}}
+                {{/each}}
+            </div>
+
+            <div class="span10">
+                {{#if ifSelected 'Конфигурации'}}
+                {{> setupConfig}}
+                {{/if}}
+                {{#if ifSelected 'Пользователи'}}
+                {{> setupUsers}}
+                {{/if}}
+                {{#if ifSelected 'Протоколы'}}
+                {{> setupProtocols}}
+                {{/if}}
+                {{#if ifSelected 'Кабели'}}
+                {{> setupCables}}
+                {{/if}}
+                {{#if ifSelected 'Разъемы'}}
+                {{> setupConnectors}}
+                {{/if}}
+                {{#if ifSelected 'Распиновки'}}
+                {{> setupPinouts}}
+                {{/if}}
+                {{#if ifSelected 'Контролы приборов'}}
+                {{> setupDeviceControls}}
+                {{/if}}
+                {{#if ifSelected 'Патчлисты'}}
+                {{> setupPaches}}
+                {{/if}}
+                {{#if ifSelected 'Приборы'}}
+                {{> setupDevices}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>

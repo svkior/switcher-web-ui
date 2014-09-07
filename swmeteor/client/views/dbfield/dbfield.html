@@ -1,0 +1,16 @@
+<template name="dbfield">
+    <li>
+        <div id="{{_id}}">
+            {{#if editing_field}}
+            <input type="text" class="input input-medium fieldname" name="efield" value="{{name}}"/>
+            <input type="text" class="input input-medium fieldvalue" value="{{value}}"/>
+            {{else}}
+            <i class="icon icon-lock"></i>
+                <span class="muted">
+                    {{name}} : {{value}}
+                </span>
+            <i class="icon icon-remove-circle fieldremove"></i>
+            {{/if}}
+        </div>
+    </li>
+</template>

@@ -1,0 +1,39 @@
+<template name="project">
+    <div class="container-fluid schema">
+        <div class="row-fluid">
+            <div class="span2 main-menu">
+                {{#each configItems}}
+                    {{> configProjectSelector}}
+                {{/each}}
+            </div>
+
+            <div class="span10">
+                {{#if ifSelected 'Планы размещения'}}
+                {{> projectPlans}}
+                {{/if}}
+                {{#if ifSelected 'Спецификация оборудования'}}
+                {{> projectSpec}}
+                {{/if}}
+                {{#if ifSelected 'Кабельный журнал'}}
+                {{> projectCables}}
+                {{/if}}
+                {{#if ifSelected 'Шины'}}
+                {{> projectBuses}}
+                {{/if}}
+                {{#if ifSelected 'Патчи'}}
+                {{> projectPatches}}
+                {{/if}}
+                {{#if ifSelected 'Шоу'}}
+                {{> projectShows}}
+                {{/if}}
+                {{#if ifSelected 'Секвенции'}}
+                {{> projectSequences}}
+                {{/if}}
+                {{#if ifSelected 'Пульты управления'}}
+                {{> projectControls}}
+                {{/if}}
+
+            </div>
+        </div>
+    </div>
+</template>

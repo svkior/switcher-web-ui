@@ -1,0 +1,12 @@
+<template name="classSelector">
+    <div class="menu-item">
+        <h3 class="text-center">{{name}} </h3>
+    </div>
+    {{#each posClasses}}
+    {{> posclassSelect}}
+    {{/each}}
+
+    <div class="menu-item cancel-edit">
+        <h6 class="text-center">Отмена</h6>
+    </div>
+</template>

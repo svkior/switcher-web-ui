@@ -1,0 +1,13 @@
+<template name="posclass">
+    <div class="text-center menu-item {{isSelected}}" id="{{_id}}">
+        {{#if editing_field}}
+        <input type="text" class="input input-medium fieldname" value="{{name}}"/>
+        {{else}}
+            <i class="icon icon-lock"></i>
+                    <span>
+                        {{name}}
+                    </span>
+            <i class="icon icon-remove-circle fieldremove"></i>
+        {{/if}}
+    </div>
+</template>
