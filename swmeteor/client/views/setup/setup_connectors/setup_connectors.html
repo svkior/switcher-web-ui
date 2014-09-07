@@ -3,9 +3,22 @@
     <button class="btn btn-large btn-info add-new-connector">Добавить новый разъем</button>
     <hr/>
 
-    {{#each connectors}}
-      {{> displayConnector}}
-    {{/each}}
-    <hr/>
+    <table class="table table-bordered table-condensed table-hover">
+        <thead>
+        <th>---</th>
+        <th>Сокращение</th>
+        <th>Производитель</th>
+        <th>Артикул</th>
+        <th>Монтаж</th>
+        <th>Тип</th>
+        <th>Контакты</th>
+        <th>Описание</th>
+        </thead>
+        <tbody>
+            {{#each connectors}}
+            {{> displayConnector}}
+            {{/each}}
+        </tbody>
+    </table>
 
 </template>

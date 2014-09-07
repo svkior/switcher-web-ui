@@ -2,7 +2,9 @@
  * Created by svkior on 07/09/14.
  */
 Template.setupProtocols.helpers({
-
+    protocols: function(){
+        return Protocols.find({}, {sort:{name:1}});
+    }
 });
 
 Template.setupProtocols.events({
@@ -11,7 +13,9 @@ Template.setupProtocols.events({
         evt.stopPropagation();
 
         var id = Protocols.insert({
-            name: 'Новый протокол'
+            name: 'XXXX',
+            desc: 'Новый Протокол'
         });
+        Session.set('setupProtocolEdit', id);
     }
 });

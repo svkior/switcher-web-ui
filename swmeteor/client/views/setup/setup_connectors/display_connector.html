@@ -1,5 +1,68 @@
 <template name="displayConnector">
-    <div class="setup-item">
-        {{art}}
-    </div>
+
+    {{#if isEdited}}
+    <tr>
+        <td><i class="icon icon-remove-circle fieldremove"></i></td>
+        <td>
+            <input type="text" value="{{name}}" class="input input-mini fieldname"/>
+            <input type="text" value="{{number}}" class="input input-mini fieldnumber"/>
+        </td>
+        <td> <input type="text" value="{{manuf}}" class="input input-medium fieldmanuf"/> </td>
+        <td> <input type="text" value="{{art}}" class="input input-medium fieldart"/> </td>
+        <td>
+            <label class="radio">
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="Cable" checked/>
+                На кабель
+            </label>
+            <label class="radio">
+                <input type="radio" name="optionsRadios" id="optionsRadios2" value="Box"/>
+                На корпус
+            </label>
+        </td>
+        <td>
+            <label class="radio">
+                <input type="radio" name="optionsRadios2" id="optionsRadios21" value="Male" checked/>
+                Вилка
+            </label>
+            <label class="radio">
+                <input type="radio" name="optionsRadios2" id="optionsRadios22" value="Female"/>
+                Розетка
+            </label>
+
+        </td>
+        <td>
+            <ul class="nav nav-pills nav-stacked">
+                {{#each pins}}
+                <i class="icon icon-lock"></i>
+                <span class="muted">
+                    {{name}} : {{value}}
+                </span>
+                <i class="icon icon-remove-circle fieldremove"></i>
+                {{/each}}
+            </ul>
+        </td>
+        <td> <input type="text" value="{{desc}}" class="input input-xlarge fielddesc"/> </td>
+    </tr>
+    {{else}}
+    <tr>
+        <td> <i class="icon icon-remove-circle fieldremove"></i></td>
+        <td><i class="icon icon-lock"></i>{{nameNnumber}}</td>
+        <td><i class="icon icon-lock"></i>{{manuf}}</td>
+        <td><i class="icon icon-lock"></i>{{art}}</td>
+        <td><i class="icon icon-lock"></i>{{typeC}}</td>
+        <td><i class="icon icon-lock"></i>{{typeF}}</td>
+        <td>
+            <ul class="nav nav-pills nav-stacked">
+            {{#each pins}}
+                <i class="icon icon-lock"></i>
+                <span class="muted">
+                    {{name}} : {{value}}
+                </span>
+                <i class="icon icon-remove-circle fieldremove"></i>
+            {{/each}}
+            </ul>
+        </td>
+        <td><i class="icon icon-lock"></i>{{desc}}</td>
+    </tr>
+    {{/if}}
 </template>

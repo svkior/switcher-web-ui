@@ -3,4 +3,16 @@
 
     <button class="btn btn-large btn-info add-new-protocol">Добавить новый протокол</button>
     <hr/>
+    <table class="table table-bordered table-condensed table-hover">
+        <thead>
+        <th>---</th>
+        <th>Сокращение</th>
+        <th>Описание</th>
+        </thead>
+        <tbody>
+        {{#each protocols}}
+            {{> displayProtocol}}
+        {{/each}}
+        </tbody>
+    </table>
 </template>

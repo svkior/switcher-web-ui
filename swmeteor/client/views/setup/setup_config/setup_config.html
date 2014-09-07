@@ -1,4 +1,18 @@
 <template name="setupConfig">
     <h1 class="text-center">Конфигурации</h1>
-
+    <button class="btn btn-large btn-info add-new-conf">Добавить новую конфигурацию</button>
+    <hr/>
+    <table class="table table-bordered table-condensed table-hover">
+        <thead>
+        <th>---</th>
+        <th>Сокращение</th>
+        <th>Площадка</th>
+        <th>Описание</th>
+        </thead>
+        <tbody>
+        {{#each configs}}
+        {{> displayConfig}}
+        {{/each}}
+        </tbody>
+    </table>
 </template>

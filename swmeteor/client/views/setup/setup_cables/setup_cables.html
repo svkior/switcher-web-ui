@@ -1,3 +1,21 @@
 <template name="setupCables">
     <h1 class="text-center">Кабели</h1>
+    <button class="btn btn-large btn-info add-new-cable">Добавить новый кабель</button>
+    <hr/>
+
+    <table class="table table-bordered table-condensed table-hover">
+        <thead>
+        <th>---</th>
+        <th>Сокращение</th>
+        <th>Производитель</th>
+        <th>Артикул</th>
+        <th>Провода</th>
+        <th>Описание</th>
+        </thead>
+        <tbody>
+        {{#each cables}}
+        {{> displayCable}}
+        {{/each}}
+        </tbody>
+    </table>
 </template>

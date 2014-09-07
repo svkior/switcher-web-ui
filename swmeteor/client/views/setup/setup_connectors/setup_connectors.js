@@ -3,7 +3,7 @@
  */
 Template.setupConnectors.helpers({
     connectors: function(){
-        return Connectors.find({});
+        return Connectors.find({},{sort:{name:1, number:1}});
     }
 });
 
@@ -18,6 +18,8 @@ Template.setupConnectors.events({
             manuf: 'Производитель',
             typeC: 'Cable',
             typeF: 'Male',
+            name: 'XX',
+            number: 0,
             pins: []
         });
         Session.set('setupConnectorEdit', id);

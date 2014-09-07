@@ -1,3 +1,20 @@
 .setup-item {
+    background-color: #193835;
+    color: #f5f5f5;
+    border-radius: 3px;
+    border-color: white;
+    border-width: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
 
+.setup-item:hover {
+    text-decoration: none;
+    background: rgba(41, 129, 40, 0.90);
+}
+
+.setup {
+    background-color: #ffffff;
 }

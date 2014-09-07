@@ -1,3 +1,20 @@
 <template name="setupDevices">
     <h1 class="text-center">Приборы</h1>
+    <button class="btn btn-large btn-info add-new-device">Добавить новый прибор</button>
+    <hr/>
+
+    <table class="table table-bordered table-condensed table-hover">
+        <thead>
+        <th>---</th>
+        <th>Сокращение</th>
+        <th>Производитель</th>
+        <th>Артикул</th>
+        <th>Описание</th>
+        </thead>
+        <tbody>
+        {{#each devices}}
+            {{> displayDevice}}
+        {{/each}}
+        </tbody>
+    </table>
 </template>
