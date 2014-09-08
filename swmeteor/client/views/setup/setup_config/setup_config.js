@@ -2,13 +2,13 @@
  * Created by svkior on 07/09/14.
  */
 Template.setupConfig.helpers({
-    cables: function(){
+    configs: function(){
         return Configurations.find({}, {sort:{name:1, number:1}});
     }
 });
 
 Template.setupConfig.events({
-    'click .add-new-cable': function(evt, templ){
+    'click .add-new-conf': function(evt, templ){
         evt.preventDefault();
         evt.stopPropagation();
 

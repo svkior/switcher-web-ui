@@ -1,5 +1,5 @@
 <template name="displayCable">
-    <tr>
+    <tr class="{isLastEdited}} {{classCopyFrom}}">
         {{#if isEdited}}
             <td><i class="icon icon-remove-circle fieldremove"></i></td>
             <td>
@@ -12,15 +12,23 @@
             <td>
                 <input type="text" value="{{art}}" class="input input-medium fieldart"/>
             </td>
-            <td>5</td>
+            <td></td>
             <td><input type="text" value="{{desc}}" class="input input-xlarge fielddesc"/> </td>
         {{else}}
             <td><i class="icon icon-remove-circle fieldremove"></i></td>
-            <td><i class="icon icon-lock"></i>{{nameNnumber}}</td>
-            <td><i class="icon icon-lock"></i>{{manuf}}</td>
-            <td><i class="icon icon-lock"></i>{{art}}</td>
-            <td>5</td>
-            <td><i class="icon icon-lock"></i>{{desc}}</td>
+            <td class="can-edit">{{nameNnumber}}</td>
+            <td class="can-edit">{{manuf}}</td>
+            <td class="can-edit">{{art}}</td>
+            <td>
+                <span class="label label-success addwire">Доб</span>
+                <span class="label label-success copywire">ДобИз</span>
+                <ul class="nav nav-pills nav-stacked">
+                    {{#each wires}}
+                    {{> displayWire}}
+                    {{/each}}
+                </ul>
+            </td>
+            <td class="can-edit">{{desc}}</td>
         {{/if}}
     </tr>
 </template>

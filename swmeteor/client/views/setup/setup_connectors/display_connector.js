@@ -12,8 +12,15 @@ function getRadioValue(theRadioGroup){
     }
 }
 
+function setRadioValue(theRadioGroup, value){
+    var elements = document.getElementsByName(theRadioGroup);
+    for(var i= 0, l= elements.length; i < l; i++){
+        elements[i].checked = elements[i].id == value;
+    }
+}
+
 Template.displayConnector.events({
-    'click .icon-lock': function(evt, tmpl){
+    'dblclick .can-edit': function(evt, tmpl){
         evt.preventDefault();
         evt.stopPropagation();
         Session.set('setupConnectorEdit', this._id);
@@ -44,15 +51,46 @@ Template.displayConnector.events({
                     }
                 });
                 Session.set('setupConnectorEdit', null);
+                Session.set('setupConnectorEdited', this._id);
                 break;
             case 27:
                 Session.set('setupConnectorEdit', null);
+                Session.set('setupConnectorEdited', this._id);
                 break;
         }
+    },
+    'click .addpin': function(evt, tmpl){
+        evt.preventDefault();
+        evt.stopPropagation();
+        var idd = Pins.insert({name:'0', u:220, sMin: 0.0, sMax: 0.0, connectorId: this._id});
+        Session.set('editing_pin', idd);
+    },
+    'click .copypin': function(evt, tmpl){
+        evt.preventDefault();
+        evt.stopPropagation();
+        Session.set('select_copy_pin_from', this._id);
+    },
+    'click .connector-copy-from': function(){
+        var minePins = Pins.find({connectorId: this._id},{reactive: false});
+        var foreignId = Session.get('select_copy_pin_from');
+
+        minePins.forEach(function(pin){
+            Pins.insert({name:pin.name, u:pin.u, sMin: pin.sMin, sMax:  pin.sMax, connectorId: foreignId});
+        });
+        Session.set('select_copy_pin_from', null);
+        Session.set('setupConnectorEdited', foreignId);
     }
 });
 
 Template.displayConnector.helpers({
+    classCopyFrom: function(){
+        var scpf = Session.get('select_copy_pin_from');
+        if(scpf){
+            return Session.equals('select_copy_pin_from', this._id) ? "" : "connector-copy-from";
+        } else{
+            return ""
+        }
+    },
    isEdited: function(){
        return Session.equals('setupConnectorEdit', this._id);
    },
@@ -62,5 +100,17 @@ Template.displayConnector.helpers({
         } else {
             return this.name + this.number;
         }
+    },
+    isCheckedF: function(name){
+        return this.typeF == name ? "checked" : "";
+    },
+    isCheckedC: function(name){
+        return this.typeC == name ? "checked" : "";
+    },
+    isLastEdited: function(){
+        return Session.equals('setupConnectorEdited', this._id) ? "tr-edited" : "";
+    },
+    pinouts: function(){
+    return Pins.find({connectorId: this._id},{sort:{name:1}});
     }
 });

@@ -18,3 +18,7 @@
 .setup {
     background-color: #ffffff;
 }
+
+.tr-edited td {
+    background-color: #7d8d98;
+}

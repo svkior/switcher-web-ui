@@ -1,0 +1,93 @@
+<template name="displayWire">
+    <li>
+        {{#if isEditing}}
+        <div class="row">
+            <div class="span4">
+                Пров:<input type="text" class="input input-mini fieldname finish-edit" value="{{name}}"/><br/>
+                U<sub>max</sub>:<input type="text" class="input input-mini fieldu finish-edit" value="{{u}}"/><br/>
+                S:<input type="text" class="input input-mini field-s finish-edit" value="{{s}}"/>
+            </div>
+            <div class="span4">
+                <input type="radio"  name="color1" value="cooper" {{isChecked1 'cooper'}}/>
+                <span class="badge" style="background-color: coral;color:black;">Медный</span><br/>
+                <input type="radio"  name="color1" value="silver" {{isChecked1 'silver'}}/>
+                <span class="badge" style="background-color: silver;color:black;">Луженый</span><br/>
+                <input type="radio"  name="color1" value="black" {{isChecked1 'black'}}/>
+                <span class="badge" style="background-color: black;color:white;">Черный</span><br/>
+                <input type="radio"  name="color1" value="white" {{isChecked1 'white'}}/>
+                <span class="badge" style="background-color: white; color:black;">Белый</span><br/>
+                <input type="radio"  name="color1" value="red" {{isChecked1 'red'}}/>
+                <span class="badge" style="background-color: red; color:black;">Красный</span><br/>
+                <input type="radio"  name="color1" value="green" {{isChecked1 'green'}}/>
+                <span class="badge" style="background-color: green; color:black;">Зеленый</span><br/>
+                <input type="radio"  name="color1" value="blue" {{isChecked1 'blue'}}/>
+                <span class="badge" style="background-color: blue; color:black;">Синий</span><br/>
+                <input type="radio"  name="color1" value="yellow" {{isChecked1 'yellow'}}/>
+                <span class="badge" style="background-color: yellow; color:black;">Желтый</span><br/>
+                <input type="radio"  name="color1" value="lightgreen" {{isChecked1 'lightgreen'}}/>
+                <span class="badge" style="background-color: lightgreen; color:black;">Светло-зеленый</span><br/>
+                <input type="radio"  name="color1" value="brown" {{isChecked1 'brown'}}/>
+                <span class="badge" style="background-color: brown; color:black;">Коричневый</span><br/>
+                <input type="radio"  name="color1" value="orange" {{isChecked1 'orange'}}/>
+                <span class="badge" style="background-color: orange; color:black;">Ораньжевый</span><br/>
+                <input type="radio"  name="color1" value="pink" {{isChecked1 'pink'}}/>
+                <span class="badge" style="background-color: pink; color:black;">Светло-зеленый</span><br/>
+                <input type="radio"  name="color1" value="purple" {{isChecked1 'purple'}}/>
+                <span class="badge" style="background-color: #800080; color:black;">Фиолетовый</span><br/>
+                <input type="radio"  name="color1" value="darkgray" {{isChecked1 'darkgray'}}/>
+                <span class="badge" style="background-color: darkgray; color:black;">Серый</span><br/>
+                <input type="radio"  name="color1" value="skyblue" {{isChecked1 'skyblue'}}/>
+                <span class="badge" style="background-color: skyblue; color:black;">Голубой</span><br/>
+                <input type="radio"  name="color1" value="saddlebrown" {{isChecked1 'saddlebrown'}}/>
+                <span class="badge" style="background-color: saddlebrown; color:black;">Темно-коричневый</span><br/>
+                <input type="radio"  name="color1" value="darkgreen"  {{isChecked1 'darkgreen'}}/>
+                <span class="badge" style="background-color: #006400; color:black;">Темно-зеленый</span>
+            </div>
+            <div class="span4">
+                <input type="radio"  name="color2" value="cooper" {{isChecked2 'cooper'}}/>
+                <span class="badge" style="background-color: coral;color:black;">Медный</span><br/>
+                <input type="radio"  name="color2" value="silver" {{isChecked2 'silver'}}/>
+                <span class="badge" style="background-color: silver;color:black;">Луженый</span><br/>
+                <input type="radio"  name="color2" value="black" {{isChecked2 'black'}}/>
+                <span class="badge" style="background-color: black;color:white;">Черный</span><br/>
+                <input type="radio"  name="color2" value="white" {{isChecked2 'white'}}/>
+                <span class="badge" style="background-color: white; color:black;">Белый</span><br/>
+                <input type="radio"  name="color2" value="red" {{isChecked2 'red'}}/>
+                <span class="badge" style="background-color: red; color:black;">Красный</span><br/>
+                <input type="radio"  name="color2" value="green" {{isChecked2 'green'}}/>
+                <span class="badge" style="background-color: green; color:black;">Зеленый</span><br/>
+                <input type="radio"  name="color2" value="blue" {{isChecked2 'blue'}}/>
+                <span class="badge" style="background-color: blue; color:black;">Синий</span><br/>
+                <input type="radio"  name="color2" value="yellow" {{isChecked2 'yellow'}}/>
+                <span class="badge" style="background-color: yellow; color:black;">Желтый</span><br/>
+                <input type="radio"  name="color2" value="lightgreen" {{isChecked2 'lightgreen'}}/>
+                <span class="badge" style="background-color: lightgreen; color:black;">Светло-зеленый</span><br/>
+                <input type="radio"  name="color2" value="brown" {{isChecked2 'brown'}}/>
+                <span class="badge" style="background-color: brown; color:black;">Коричневый</span><br/>
+                <input type="radio"  name="color2" value="orange" {{isChecked2 'orange'}}/>
+                <span class="badge" style="background-color: orange; color:black;">Ораньжевый</span><br/>
+                <input type="radio"  name="color2" value="pink" {{isChecked2 'pink'}}/>
+                <span class="badge" style="background-color: pink; color:black;">Светло-зеленый</span><br/>
+                <input type="radio"  name="color2" value="purple" {{isChecked2 'purple'}}/>
+                <span class="badge" style="background-color: #800080; color:black;">Фиолетовый</span><br/>
+                <input type="radio"  name="color2" value="darkgray" {{isChecked2 'darkgray'}}/>
+                <span class="badge" style="background-color: darkgray; color:black;">Серый</span><br/>
+                <input type="radio"  name="color2" value="skyblue" {{isChecked2 'skyblue'}}/>
+                <span class="badge" style="background-color: skyblue; color:black;">Голубой</span><br/>
+                <input type="radio"  name="color2" value="saddlebrown" {{isChecked2 'saddlebrown'}}/>
+                <span class="badge" style="background-color: saddlebrown; color:black;">Темно-коричневый</span><br/>
+                <input type="radio"  name="color2" value="darkgreen" {{isChecked2 'darkgreen'}}/>
+                <span class="badge" style="background-color: #006400; color:black;">Темно-зеленый</span>
+            </div>
+        </div>
+        {{else}}
+        <i class="icon icon-lock"></i>
+                <span class="muted">
+                    {{name}}:{{s}}мм<sup>2</sup>
+                    <span class="badge" style="background-color: {{color1}};">1</span>
+                    <span class="badge" style="background-color: {{color2}};">2</span>
+                </span>
+        <i class="icon icon-remove-circle fieldremove"></i>
+        {{/if}}
+    </li>
+</template>

@@ -2,6 +2,14 @@
  * Created by svkior on 07/09/14.
  */
 Template.displayCable.helpers({
+    classCopyFrom: function(){
+        var scwf = Session.get('select_copy_wire_from');
+        if(scwf){
+            return Session.equals('select_copy_wire_from', this._id) ? "" : "connector-copy-from";
+        } else{
+            return ""
+        }
+    },
     isEdited: function(){
         return Session.equals('setupCableEdit', this._id);
     },
@@ -11,11 +19,17 @@ Template.displayCable.helpers({
         } else {
             return this.name + this.number;
         }
+    },
+    isLastEdited: function(){
+        return Session.equals('setupCableEdited', this._id) ? "tr-edited" : "";
+    },
+    wires: function(){
+        return Wires.find({cableId: this._id},{sort:{name:1}});
     }
 });
 
 Template.displayCable.events({
-    'click .icon-lock': function(evt, tmpl){
+    'dblclick .can-edit': function(evt, tmpl){
         evt.preventDefault();
         evt.stopPropagation();
         Session.set('setupCableEdit', this._id);
@@ -46,5 +60,27 @@ Template.displayCable.events({
                 Session.set('setupCableEdit', null);
                 break;
         }
+    },
+    'click .addwire': function(evt, tmpl){
+        evt.preventDefault();
+        evt.stopPropagation();
+        var idd = Wires.insert({name:'0', u:220, s: 0.0, color1: "black", color2: "black", cableId: this._id});
+        Session.set('editing_wire', idd);
+    },
+    'click .copywire': function(evt, tmpl){
+        evt.preventDefault();
+        evt.stopPropagation();
+        Session.set('select_copy_wire_from', this._id);
+    },
+    'click .connector-copy-from ': function(evt, tmpl){
+        evt.preventDefault();
+        evt.stopPropagation();
+        var mineWires = Wires.find({cableId: this._id}, {reactive: false});
+        var foreignId  = Session.get('select_copy_wire_from');
+
+        mineWires.forEach(function(wire){
+            Wires.insert({name:wire.name, u:wire.u, s: wire.s, color1: wire.color1, color2: wire.color2, cableId: foreignId});
+        });
+        Session.set('select_copy_wire_from', null);
     }
 });

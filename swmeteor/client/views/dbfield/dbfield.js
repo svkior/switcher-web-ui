@@ -28,12 +28,3 @@ Template.dbfield.events({
         }
     }
 });
-
-Template.dbfield.rendered = function(){
-    var input = this.find('.fieldname');
-
-    if(input){
-        input.focus()
-    }
-
-};

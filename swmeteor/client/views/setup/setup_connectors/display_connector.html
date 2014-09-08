@@ -2,7 +2,7 @@
 
     {{#if isEdited}}
     <tr>
-        <td><i class="icon icon-remove-circle fieldremove"></i></td>
+        <td><i id="{{_id}}" class="icon icon-remove-circle fieldremove"></i></td>
         <td>
             <input type="text" value="{{name}}" class="input input-mini fieldname"/>
             <input type="text" value="{{number}}" class="input input-mini fieldnumber"/>
@@ -11,21 +11,21 @@
         <td> <input type="text" value="{{art}}" class="input input-medium fieldart"/> </td>
         <td>
             <label class="radio">
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="Cable" checked/>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="Cable" {{isCheckedC 'Cable'}}/>
                 На кабель
             </label>
             <label class="radio">
-                <input type="radio" name="optionsRadios" id="optionsRadios2" value="Box"/>
+                <input type="radio" name="optionsRadios" id="optionsRadios2" value="Box" {{isCheckedC 'Box'}}/>
                 На корпус
             </label>
         </td>
         <td>
             <label class="radio">
-                <input type="radio" name="optionsRadios2" id="optionsRadios21" value="Male" checked/>
+                <input type="radio" name="optionsRadios2" id="optionsRadios21" value="Male" {{isCheckedF 'Male'}} />
                 Вилка
             </label>
             <label class="radio">
-                <input type="radio" name="optionsRadios2" id="optionsRadios22" value="Female"/>
+                <input type="radio" name="optionsRadios2" id="optionsRadios22" value="Female" {{isCheckedF 'Female'}} />
                 Розетка
             </label>
 
@@ -44,25 +44,23 @@
         <td> <input type="text" value="{{desc}}" class="input input-xlarge fielddesc"/> </td>
     </tr>
     {{else}}
-    <tr>
-        <td> <i class="icon icon-remove-circle fieldremove"></i></td>
-        <td><i class="icon icon-lock"></i>{{nameNnumber}}</td>
-        <td><i class="icon icon-lock"></i>{{manuf}}</td>
-        <td><i class="icon icon-lock"></i>{{art}}</td>
-        <td><i class="icon icon-lock"></i>{{typeC}}</td>
-        <td><i class="icon icon-lock"></i>{{typeF}}</td>
+    <tr class="{{isLastEdited}} {{classCopyFrom}}">
+        <td><i class="icon icon-remove-circle fieldremove"></i></td>
+        <td class="can-edit">{{nameNnumber}}</td>
+        <td class="can-edit">{{manuf}}</td>
+        <td class="can-edit">{{art}}</td>
+        <td class="can-edit">{{typeC}}</td>
+        <td class="can-edit">{{typeF}}</td>
         <td>
+            <span class="label label-success addpin">Доб</span>
+            <span class="label label-success copypin">ДобИз</span>
             <ul class="nav nav-pills nav-stacked">
-            {{#each pins}}
-                <i class="icon icon-lock"></i>
-                <span class="muted">
-                    {{name}} : {{value}}
-                </span>
-                <i class="icon icon-remove-circle fieldremove"></i>
+            {{#each pinouts}}
+                {{> displayPinout}}
             {{/each}}
             </ul>
         </td>
-        <td><i class="icon icon-lock"></i>{{desc}}</td>
+        <td class="can-edit">{{desc}}</td>
     </tr>
     {{/if}}
 </template>

@@ -1,0 +1,16 @@
+<template name="displayPinout">
+    <li>
+        {{#if isEditing}}
+        Конт:<input type="text" class="input input-mini fieldname finish-edit" value="{{name}}"/><br/>
+        U<sub>max</sub>:<input type="text" class="input input-mini fieldu finish-edit" value="{{u}}"/><br/>
+        S<sub>min</sub>:<input type="text" class="input input-mini field-smin finish-edit" value="{{sMin}}"/><br/>
+        S<sub>max</sub>:<input type="text" class="input input-mini field-smax finish-edit" value="{{sMax}}"/>
+        {{else}}
+        <i class="icon icon-lock"></i>
+                <span class="muted">
+                    {{name}}:{{sMax}}мм<sup>2</sup>
+                </span>
+        <i class="icon icon-remove-circle fieldremove"></i>
+        {{/if}}
+    </li>
+</template>
