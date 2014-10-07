@@ -3,22 +3,28 @@
         {{#if isEdited}}
         <td><i class="icon icon-remove-circle fieldremove"></i></td>
         <td>
-            <input type="text" value="{{name}}" class="input input-mini fieldname"/>
-            <input type="text" value="{{number}}" class="input input-mini fieldnumber"/>
+            <input type="text" value="{{name}}" class="input input-mini fieldname can-save"/>
+            <input type="text" value="{{number}}" class="input input-mini fieldnumber can-save"/>
         </td>
         <td>
-            <input type="text" value="{{manuf}}" class="input input-medium fieldmanuf"/>
+            <input type="text" value="{{manuf}}" class="input input-medium fieldmanuf can-save"/>
         </td>
         <td>
-            <input type="text" value="{{art}}" class="input input-medium fieldart"/>
+            <input type="text" value="{{art}}" class="input input-medium fieldart can-save"/>
         </td>
-        <td><input type="text" value="{{desc}}" class="input input-xlarge fielddesc"/> </td>
+        <td>
+            <input type="text" value="{{dmx}}" class="input input-medium fielddmx can-save"/>
+        </td>
+        <td>
+            <input type="text" value="{{desc}}" class="input input-xlarge fielddesc can-save"/>
+        </td>
         {{else}}
         <td><i class="icon icon-remove-circle fieldremove"></i></td>
-        <td><i class="icon icon-lock"></i>{{nameNnumber}}</td>
-        <td><i class="icon icon-lock"></i>{{manuf}}</td>
-        <td><i class="icon icon-lock"></i>{{art}}</td>
-        <td><i class="icon icon-lock"></i>{{desc}}</td>
+        <td class="can-edit">{{nameNnumber}}</td>
+        <td class="can-edit">{{manuf}}</td>
+        <td class="can-edit">{{art}}</td>
+        <td class="can-edit">{{dmx}}</td>
+        <td class="can-edit">{{desc}}</td>
         {{/if}}
     </tr>
 </template>

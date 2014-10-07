@@ -1,3 +1,18 @@
 <template name="projectPlans">
-    <h1 class="text-center">Планы размещения оборудования</h1>
+    <h2 class="text-center">Планы размещения оборудования, Конфигурация: {{confName}}</h2>
+    <button class="btn btn-large btn-info add-plan">Добавить план</button>
+    <hr/>
+    <table class="table table-bordered table-condensed table-hover">
+        <thead>
+        <th>---</th>
+        <th>Name/Number</th>
+        <th>Desc</th>
+        <th>Devices</th>
+        <th>Groups</th>
+        <th>Sequences</th>
+        </thead>
+        {{#each ProjectSpec}}
+        {{> displayPlan}}
+        {{/each}}
+    </table>
 </template>

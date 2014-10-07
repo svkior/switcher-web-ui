@@ -1,0 +1,54 @@
+<template name="specLine">
+    {{#if isEdited}}
+    <tr>
+        <td><i class="icon icon-remove-circle fieldremove"></i></td>
+        <td>
+            <input type="text" value="{{name}}" class="input input-mini fieldname can-save"/>
+            <input type="text" value="{{number}}" class="input input-mini fieldnumber can-save"/>
+        </td>
+        <td>3</td>
+        <td>
+            <select id="select-device" class="can-save">
+                {{#each selectDevices}}
+                    <option value="{{_id}}" {{isDeviceSelected}}>{{name}} - {{desc}}</option>
+                {{/each}}
+            </select>
+        </td>
+        <td>
+            <select id="select-universe" class="can-save">
+                {{#each selectUniverses}}
+                    <option value="{{_id}}" {{isSelectedBus}} >{{name}} - {{desc}}</option>
+                {{/each}}
+            </select>
+        </td>
+        <td>
+            <input type="text" value="{{dmx}}" class="input input-medium fielddmx can-save"/>
+        </td>
+        <td>
+            ----
+        </td>
+    </tr>
+    {{else}}
+    <tr class="{{isLastEdited}} {{classCopyFrom}}">
+        <td class="can-edit"><i class="icon icon-remove-circle fieldremove"></i></td>
+        <td class="can-edit">{{nameNnumber}}</td>
+        <td class="can-edit">            <span class="label label-success copydevice">ДобИз</span>
+        </td>
+        <td class="can-edit">
+            {{deviceName}}
+        </td>
+        <td class="can-edit">{{universeName}}</td>
+        <td class="can-edit">{{dmx}}</td>
+        <td>
+            <ul class="nav nav-pills nav-stacked">
+                {{#each plans}}
+                <li>
+                    <input type="checkbox" name="plans"  class='check-check' value="{{_id}}"/> {{name}}{{number}}
+                </li>
+                {{/each}}
+            </ul>
+
+        </td>
+    </tr>
+    {{/if}}
+</template>

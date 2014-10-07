@@ -1,3 +1,20 @@
 <template name="projectSpec">
-    <h1 class="text-center">Спецификация оборудования</h1>
+    <h2 class="text-center">Спецификация оборудования, Конфигурация: {{confName}}</h2>
+    <button class="btn btn-large btn-info add-spec-position">Добавить позицию</button>
+    <hr/>
+   <table class="table table-bordered table-condensed table-hover">
+       <thead>
+       <th>---</th>
+       <th>Сокр</th>
+       <th>Упр</th>
+       <th>Марка</th>
+       <th>Вселенная</th>
+       <th>Стартовый адрес</th>
+       <th>Планы</th>
+       </thead>
+       {{#each ProjectSpec}}
+         {{> specLine}}
+       {{/each}}
+   </table>
+
 </template>

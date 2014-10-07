@@ -1,3 +1,17 @@
 <template name="projectBuses">
-    <h1 class="text-center">Шины</h1>
+    <h1 class="text-center">Шины, Конфигурация: {{confName}}</h1>
+    <button class="btn btn-large btn-info add-bus">Добавить шину</button>
+    <hr/>
+    <table class="table table-bordered table-condensed table-hover">
+        <thead>
+        <th>---</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Devices</th>
+        <th>Описание</th>
+        </thead>
+        {{#each buses}}
+        {{> displayBus}}
+        {{/each}}
+    </table>
 </template>

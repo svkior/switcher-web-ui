@@ -1,3 +1,20 @@
 <template name="setupPinouts">
     <h1 class="text-center">Распиновки</h1>
+    <button class="btn btn-large btn-info add-new-pinout">Добавить новую распиновку</button>
+    <hr/>
+    <table class="table table-bordered table-condensed table-hover">
+        <thead>
+        <th>---</th>
+        <th>Название</th>
+        <th>Тип</th>
+        <th>Кабель</th>
+        <th>Разъем</th>
+        </thead>
+        <tbody>
+        {{#each pinouts}}
+        {{> displayPinout}}
+        {{/each}}
+        </tbody>
+    </table>
+
 </template>

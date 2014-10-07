@@ -1,0 +1,24 @@
+<template name="displayBus">
+    {{#if isEdited}}
+    <tr>
+        <td><i class="icon icon-remove-circle fieldremove"></i></td>
+        <td>
+            <input type="text" value="{{name}}" class="input input-mini fieldname can-save"/>
+            <input type="text" value="{{number}}" class="input input-mini fieldnumber can-save"/>
+        </td>
+        <td>3</td>
+        <td>4</td>
+        <td>
+            <input type="text" value="{{desc}}" class="input input-medium fielddesc can-save"/>
+        </td>
+    </tr>
+    {{else}}
+    <tr>
+        <td><i class="icon icon-remove-circle fieldremove"></i></td>
+        <td class="can-edit">{{nameNnumber}}</td>
+        <td class="can-edit">3</td>
+        <td class="can-edit">4</td>
+        <td class="can-edit">{{desc}}</td>
+    </tr>
+    {{/if}}
+</template>

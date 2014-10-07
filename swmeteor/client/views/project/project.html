@@ -1,5 +1,5 @@
 <template name="project">
-    <div class="container-fluid schema">
+    <div class="container-fluid">
         <div class="row-fluid">
             <div class="span2 main-menu">
                 {{#each configItems}}
@@ -8,6 +8,9 @@
             </div>
 
             <div class="span10">
+                {{#if ifSelected 'Выбор конфигурации'}}
+                {{> projectSelect}}
+                {{/if}}
                 {{#if ifSelected 'Планы размещения'}}
                 {{> projectPlans}}
                 {{/if}}

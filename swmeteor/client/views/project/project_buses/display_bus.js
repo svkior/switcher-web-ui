@@ -1,9 +1,9 @@
 /**
- * Created by svkior on 07/09/14.
+ * Created by svkior on 09/09/14.
  */
-Template.displayDevice.helpers({
+Template.displayBus.helpers({
     isEdited: function(){
-        return Session.equals('setupDeviceEdit', this._id);
+        return Session.equals('setupBusEdit', this._id);
     },
     nameNnumber: function(){
         if(this.number == 0){
@@ -14,38 +14,37 @@ Template.displayDevice.helpers({
     }
 });
 
-Template.displayDevice.events({
+Template.displayBus.events({
     'dblclick .can-edit': function(evt, tmpl){
         evt.preventDefault();
         evt.stopPropagation();
-        Session.set('setupDeviceEdit', this._id);
+        Session.set('setupBusEdit', this._id);
     },
     'click .fieldremove': function(evt, tmpl){
         evt.preventDefault();
         evt.stopPropagation();
-        Devices.remove(this._id);
-    },
-    'keyup .can-save': function(evt, tmpl){
+        Buses.remove(this._id);
+    },    'keyup .can-save': function(evt, tmpl){
         evt.preventDefault();
         evt.stopPropagation();
         switch(evt.which){
             case 13:
-                Devices.update(this._id, {
+                Buses.update(this._id, {
                     $set:{
                         name:   tmpl.find('.fieldname').value,
                         number: parseInt(tmpl.find('.fieldnumber').value),
-                        manuf:  tmpl.find('.fieldmanuf').value,
-                        desc:   tmpl.find('.fielddesc').value,
-                        dmx:    parseInt(tmpl.find('.fielddmx').value),
-                        art:    tmpl.find('.fieldart').value
-
+                        desc: tmpl.find('.fielddesc').value
                     }
                 });
-                Session.set('setupDeviceEdit', null);
+                Session.set('setupBusEdit', null);
+                Session.set('setupBusEdited', this._id);
+
                 break;
             case 27:
-                Session.set('setupDeviceEdit', null);
+                Session.set('setupBusEdit', null);
+                Session.set('setupBusEdited', this._id);
                 break;
         }
     }
+
 });

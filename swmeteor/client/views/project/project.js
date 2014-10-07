@@ -6,6 +6,9 @@ Template.project.helpers({
     configItems: function() {
         return [
             {
+                name: "Выбор конфигурации"
+            },
+            {
                 name: "Планы размещения"
             },
             {
@@ -32,7 +35,7 @@ Template.project.helpers({
         ];
     },
     ifSelected: function(name){
-        console.log('name', name);
+        //console.log('name', name);
         var sel = Session.get('projectSelector');
         return sel === name;
     }
